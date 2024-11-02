@@ -20,10 +20,13 @@ function page() {
        className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
          Update Profile
        </Button > 
-       <Button  
+      <a href='feedback'>
+      <Button  
        className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">
-        Blood Camps
+        Feedback
        </Button>
+
+      </a>
      </div>
      </div>
      </div>
