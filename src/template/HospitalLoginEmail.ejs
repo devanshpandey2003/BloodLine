@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Login Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #d9534f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .footer a {
+            color: #d9534f;
+            text-decoration: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #28a745;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>BloodLine</h1>
+            <p>Your Trusted Blood Donation Partner</p>
+        </div>
+        <div class="content">
+            <p>Dear <%= hospitalName %>,</p>
+            <p>Thank you for registering with BloodLine! We are pleased to inform you that your account has been successfully created.</p>
+            <h3>Your Login Details:</h3>
+            <ul>
+                <li><strong>Hospital Name</strong> <%= hospitalName %></li>
+                <li><strong>Hospital Address:</strong> <%= hospitalAddress %></li>
+            </ul>
+            <p>Please ensure you change your password upon your first login to secure your account.</p>
+            <p>As a registered hospital, you can generate blood requests directly through your account. This feature enables you to request blood units efficiently when needed.</p>
+            <p>If you have any questions or need assistance, feel free to reach out to our support team.</p>
+            <p>Thank you for choosing BloodLine!</p>
+            <p>Best Regards,<br>The BloodLine Team</p>
+        </div>
+        <div class="footer">
+            <p>devansh.dp2004@gmail.com</p>
+            <a href="https://www.instagram.com/devansh_aka_dev/?next=%2F">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+
+            </a>
+            <p>JC Bose Hostel, SGSITS, Indore, Madhya Pradesh</p>
+            <p>If you no longer wish to receive emails from us, please <a href="#">unsubscribe</a>.</p>
+        </div>
+    </div>
+</body>
+
+<script src="https://kit.fontawesome.com/d4681a2e1a.js" crossorigin="anonymous"></script>
+
+</html>

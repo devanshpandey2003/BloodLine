@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background-color: #d9534f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        
+        .footer a {
+            color: #d9534f;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <svg id="logo-16" width="10%" height="10%" viewBox="0 0 109 43" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+                <path d="M64.9315 11.4284C62.1883 8.6852 58.9316 6.5091 55.3475 5.0245C51.7633 3.5399 47.9219 2.7758 44.0424 2.7758C40.1629 2.7758 36.3215 3.5399 32.7373 5.0245C29.1532 6.5091 25.8965 8.6852 23.1533 11.4284L44.0424 32.3174L64.9315 11.4284Z"  fill="#FFD200"></path> 
+                <path d="M44.0686 32.3475C46.8118 35.0907 50.0684 37.2667 53.6526 38.7513C57.2367 40.2359 61.0782 41 64.9577 41C68.837 41 72.679 40.2359 76.263 38.7513C79.847 37.2667 83.104 35.0907 85.847 32.3475L64.9577 11.4584L44.0686 32.3475Z"  fill="#06E07F"></path> 
+                <path d="M44.017 32.3429C41.2738 35.0861 38.0171 37.2621 34.433 38.7467C30.8488 40.2313 27.0074 40.9954 23.1279 40.9954C19.2484 40.9954 15.407 40.2313 11.8228 38.7467C8.2387 37.2621 4.982 35.0861 2.2388 32.3429L23.1279 11.4538L44.017 32.3429Z"  fill="#E3073C"></path> 
+                <path d="M64.9831 11.433C67.726 8.6898 70.983 6.5138 74.567 5.0292C78.151 3.5446 81.993 2.7805 85.872 2.7805C89.752 2.7805 93.593 3.5446 97.177 5.0292C100.761 6.5138 104.018 8.6898 106.761 11.433L85.872 32.3221L64.9831 11.433Z"  fill="#1F84EF"></path> 
+            </svg>
+            <h1>BloodLine</h1>
+            <p>Your Trusted Blood Donation Partner</p>
+        </div>
+        <div class="content">
+            <p>Dear <%= donorName %>,</p>
+            <p>We hope this message finds you well. thanks for choosing us, and we'd love to have you on board as a life-saving donor!</p>
+            <h3>Your Details:</h3>
+            <ul>
+                <li><strong>Name:</strong> <%= donorName %></li>
+                <li><strong>Age:</strong> <%= donorAge %></li>
+                <li><strong>Address:</strong> <%= donorAddress %></li>
+                <li><strong>Weight:</strong> <%= donorWeight %></li>
+                <li><strong>Blood Type:</strong> <%= bloodType %></li>
+               
+            </ul>
+            <p>Why donate blood?</p>
+            <p>Donating blood is a simple act that can save multiple lives. Every unit you donate can be the difference between life and death for those in critical need.</p>
+            <p>If you'd like to get started or need more information, please visit our website or contact us directly.</p>
+            <p>Thank you for considering to make a difference!</p>
+            <p>Best Regards,<br>The BloodLine Team</p>
+        </div>
+        <div class="footer">
+            <p>devansh.dp2004@gmail.com</p>
+            <a href="https://www.instagram.com/devansh_aka_dev/?next=%2F">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+
+            </a>
+            <p>JC Bose Hostel, SGSITS, Indore, Madhya Pradesh</p>
+            <p>If you no longer wish to receive emails from us, please <a href="#">unsubscribe</a>.</p>
+        </div>
+    </div>
+</body>
+
+<script src="https://kit.fontawesome.com/d4681a2e1a.js" crossorigin="anonymous"></script>
+
+</html>

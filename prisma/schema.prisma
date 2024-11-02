@@ -1,0 +1,147 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {m
+  id         String    @unique
+  role       UserRole
+  donor      Donor?    @relation(fields: [donorId], references: [donor_id])
+  donorId    Int?      @unique
+  admin      Admin?    @relation(fields: [adminId], references: [id])
+  adminId    Int?      @unique
+  hospital   Hospital? @relation(fields: [hospitalId], references: [id])
+  hospitalId Int?      @unique
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  user      User?
+}
+
+model Donor {
+  donor_id               Int                @id @default(autoincrement())
+  name                   String
+  bloodType              String
+  contact                String
+  address                String
+  disease                String
+  age                    Int
+  weight                 Int
+  email                  String             @unique
+  hasSentEmail           Boolean?           @default(false)
+  ReminderEmailDate      DateTime?
+  campRegistractionEmail Boolean?           @default(false)
+  hasDonated             Boolean?           @default(false)
+  lastDonation           DateTime?
+  createdAt              DateTime           @default(now())
+  donations              Donation[]
+  user                   User?
+  CampRegistration       CampRegistration[]
+}
+
+model Hospital {
+  id                Int            @id @default(autoincrement())
+  name              String
+  email             String         @unique
+  address           String
+  contact           String
+  hasSentLoginEmail Boolean        @default(false)
+  requests          BloodRequest[]
+  user              User?
+}
+
+model BloodInventory {
+  id        Int    @id @default(autoincrement())
+  bloodType String @unique
+  quantity  Int
+}
+
+model DonationCamp {
+  id            Int                @id @default(autoincrement())
+  name          String
+  location      String
+  date          DateTime
+  registrations CampRegistration[]
+  createdAt     DateTime           @default(now())
+}
+
+model CampRegistration {
+  id           Int          @id @default(autoincrement())
+  donorId      Int
+  campId       Int
+  registeredAt DateTime     @default(now())
+  donor        Donor        @relation(fields: [donorId], references: [donor_id])
+  camp         DonationCamp @relation(fields: [campId], references: [id])
+}
+
+model Donation {
+  id        Int      @id @default(autoincrement())
+  donorId   Int
+  bloodType String
+  date      DateTime
+  quantity  Int
+  donor     Donor    @relation(fields: [donorId], references: [donor_id])
+}
+
+model BloodRequest {
+  id                   Int              @id @default(autoincrement())
+  hospitalId           Int
+  bloodType            String
+  quantity             Int
+  status               RequestStatus    @default(PENDING)
+  requestDate          DateTime         @default(now())
+  requestRejectedEmail Boolean          @default(false)
+  requestApprovedEmail Boolean          @default(false)
+  delivery             BloodDelivery?
+  hospital             Hospital         @relation(fields: [hospitalId], references: [id])
+  history              RequestHistory[]
+}
+
+model RequestHistory {
+  id        Int           @id @default(autoincrement())
+  requestId Int
+  status    RequestStatus @default(PENDING)
+  changedAt DateTime      @default(now())
+  comment   String?
+
+  request BloodRequest @relation(fields: [requestId], references: [id])
+}
+
+model BloodDelivery {
+  id           Int            @id @default(autoincrement())
+  requestId    Int            @unique
+  deliveryDate DateTime       @default(now())
+  status       DeliveryStatus @default(ON_THE_WAY)
+  request      BloodRequest   @relation(fields: [requestId], references: [id])
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum DeliveryStatus {
+  ON_THE_WAY
+  CANCELLED
+}
+
+enum UserRole {
+  DONOR
+  ADMIN
+  HOSPITAL
+}
+
+enum RegistrationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
